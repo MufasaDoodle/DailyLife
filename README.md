@@ -4,7 +4,7 @@
 
 Essentially this app is supposed to help with daily things in life.
 
-The app that has three main functions:
+The app has three main functions:
 * A todo-list. Adding a todos with a checkboxes to 'cross-out' the text
 * A note taking function. Allows users to create and write new notes
 * A grocery list manager. Similar to the todo list, but also allows for inputting amounts. User can swipe a listing to remove it.
