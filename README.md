@@ -7,6 +7,7 @@ An app that has three main functions:
 * A todo-list. Adding a todos with a checkboxes to 'cross-out' the text
 * A note taking function. Allows users to create and write new notes
 * A grocery list manager. Similar to the todo list, but also allows for inputting amounts. User can swipe a listing to remove it.
+
 Technically speaking, the backend would contain a SQLite database for local storage, and if I have time, an option to upload the data to the cloud through my (existing) web API.
 The frontend will contain a dropdown list or something similar with the three functions able to be selected. You will then go to the selected view and you're able to interact with it. The app saves the data to local storage if the user exits the app or presses the 'back' button to a different view.
 
