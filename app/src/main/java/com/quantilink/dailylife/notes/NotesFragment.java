@@ -70,8 +70,6 @@ public class NotesFragment extends Fragment implements NotesAdapter.OnListItemCl
 
     @Override
     public void OnListItemClick(Note note) {
-        //start activity with that note we've clicked
-        Toast.makeText(root.getContext(), "hello", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(root.getContext(), NoteActivity.class);
         intent.putExtra("Note", note);
         startActivity(intent);
