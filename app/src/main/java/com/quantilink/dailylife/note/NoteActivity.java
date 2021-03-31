@@ -18,6 +18,8 @@ import com.quantilink.dailylife.models.Note;
 public class NoteActivity extends AppCompatActivity {
     private NoteViewModel viewModel;
 
+    private Note currentNote;
+
     AppBarConfiguration mAppBarConfiguration;
 
     @Override
@@ -27,9 +29,11 @@ public class NoteActivity extends AppCompatActivity {
 
         TextView noteTitle = findViewById(R.id.noteTitle);
         TextView noteText = findViewById(R.id.noteText);
+
         Bundle bundle = getIntent().getExtras();
-        Note note = (Note) bundle.get("Note");
-        noteTitle.setText(note.getNoteTitle());
-        noteText.setText(note.getNoteText());
+        currentNote = (Note) bundle.get("Note");
+
+        noteTitle.setText(currentNote.getNoteTitle());
+        noteText.setText(currentNote.getNoteText());
     }
 }

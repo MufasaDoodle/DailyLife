@@ -37,35 +37,11 @@ public class NotesFragment extends Fragment implements NotesAdapter.OnListItemCl
         notesList.hasFixedSize();
         notesList.setLayoutManager(new LinearLayoutManager(root.getContext()));
 
-        //replace with retrieving data from database or webservice
-        seed();
+        mNotesAdapter = new NotesAdapter(viewModel.getNotes(), this);
 
         notesList.setAdapter(mNotesAdapter);
 
         return root;
-    }
-
-    private void seed(){
-        ArrayList<Note> notes = new ArrayList<>();
-        notes.add(new Note("title1", "hey bro"));
-        notes.add(new Note("title2", "hey bro2"));
-        notes.add(new Note("title3", "hey bro3"));
-        notes.add(new Note("title4", "hey bro4"));
-        notes.add(new Note("title5", "hey bro5"));
-        notes.add(new Note("title6", "hey bro6"));
-        notes.add(new Note("title7", "hey bro7"));
-        notes.add(new Note("title8", "hey bro8"));
-        notes.add(new Note("title9", "hey bro9"));
-        notes.add(new Note("title10", "hey bro10"));
-        notes.add(new Note("title11", "hey bro11"));
-        notes.add(new Note("title12", "hey bro12"));
-        notes.add(new Note("title13", "hey bro13"));
-        notes.add(new Note("title14", "hey bro14"));
-        notes.add(new Note("title15", "hey bro15"));
-        notes.add(new Note("title16", "hey bro16"));
-        notes.add(new Note("title17", "hey bro17"));
-
-        mNotesAdapter = new NotesAdapter(notes, this);
     }
 
     @Override
