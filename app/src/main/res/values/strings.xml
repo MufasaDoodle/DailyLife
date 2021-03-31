@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">DailyLife</string>
+    <string name="landing_page_welcome">Welcome to the daily life app!</string>
+    <string name="home_title">Home</string>
+    <string name="functions_category">Functions</string>
+    <string name="to_do_list_function">To-do list</string>
+    <string name="notes_function">Notes</string>
+    <string name="groceries_function">Groceries</string>
+    <string name="technical_category">Technical</string>
+    <string name="settings_function">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
