@@ -17,7 +17,7 @@ The frontend will contain a navigation drawer or something similar with the thre
 
 ### Must have:
 - [x] As a user, I want to be able to view my todo-lists, so that I can easily find the one I’m looking for.
-- [ ] As a user, I want to be able to add a todo-list, so that I can compartmentalize my lists.
+- [x] As a user, I want to be able to add a todo-list, so that I can compartmentalize my lists.
 - [ ] As a user, I want to be able to add todo entries to a selected todo-list, so that I can help remember my tasks.
 - [ ] As a user, I want the app to save my data to local storage when exiting the app, so that my data is saved when I am done.
 - [ ] As a user, I want the app to save my data to local storage when I press the back button, so that my data is saved when I am done.
