@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".note.NoteActivity">
         </activity>
+        <activity android:name=".todos.TodoActivity">
+    </activity>
     </application>
 
 </manifest>
