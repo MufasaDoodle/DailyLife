@@ -8,9 +8,13 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.quantilink.dailylife.R;
 import com.quantilink.dailylife.models.NotesAdapter;
@@ -39,9 +43,16 @@ public class TodosFragment extends Fragment implements TodoListAdapter.OnListIte
         todoLists.hasFixedSize();
         todoLists.setLayoutManager(new LinearLayoutManager(root.getContext()));
 
-        todoListAdapter = new TodoListAdapter(viewModel.getTodoLists(), this);
+        viewModel.getTodoLists().observe(getViewLifecycleOwner(), todolists -> {
+            todoListAdapter = new TodoListAdapter(todolists, this);
+            todoLists.setAdapter(todoListAdapter);
+        });
 
-        todoLists.setAdapter(todoListAdapter);
+        Button createListButton = root.findViewById(R.id.createtodolistbtn);
+        EditText todoListtitleET = root.findViewById(R.id.todolistTitle);
+        createListButton.setOnClickListener(v -> {
+            addNewTodoList(todoListtitleET.getText().toString());
+        });
 
         return root;
     }
@@ -51,5 +62,11 @@ public class TodosFragment extends Fragment implements TodoListAdapter.OnListIte
         Intent intent = new Intent(root.getContext(), TodoActivity.class);
         intent.putExtra("TodoList", todoList);
         startActivity(intent);
+    }
+
+    void addNewTodoList(String todoListTitle){
+        if(!todoListTitle.isEmpty() || todoListTitle != null){
+            viewModel.addTodoList(todoListTitle);
+        }
     }
 }
