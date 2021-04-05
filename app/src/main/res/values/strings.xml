@@ -16,4 +16,6 @@
     <string name="todolistHint">To-do list title</string>
     <string name="todo_writeTodoHint">Write your todo...</string>
     <string name="todo_add_btn">Add</string>
+    <string name="tempTodoTitle">todoTitle</string>
+    <string name="addNewList">addNewListFAB</string>
 </resources>

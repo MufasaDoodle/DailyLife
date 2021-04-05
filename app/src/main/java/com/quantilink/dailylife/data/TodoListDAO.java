@@ -35,12 +35,22 @@ public class TodoListDAO {
         ArrayList<Todo> temptodos = new ArrayList<>();
         TodoList temptodolist = new TodoList(todolistTitle, temptodos);
         ArrayList<TodoList> temp = todoLists.getValue();
+
+        if(temp == null){
+            return;
+        }
+
         temp.add(temptodolist);
         todoLists.postValue(temp);
     }
 
     public void deleteTodoList(int index){
         ArrayList<TodoList> temp = todoLists.getValue();
+
+        if(temp == null){
+            return;
+        }
+
         temp.remove(index);
         todoLists.postValue(temp);
     }
@@ -51,18 +61,50 @@ public class TodoListDAO {
 
     public void updateTodoList(TodoList todoList){
         int index = -1;
+
         ArrayList<TodoList> temp = todoLists.getValue();
+
+        if(temp == null){
+            return;
+        }
+
         for (int i = 0; i < temp.size(); i++) {
             if(temp.get(i).getTodoListTitle().equals(todoList.getTodoListTitle())){
                 index = i;
+
+                temp.set(index, todoList);
+                todoLists.postValue(temp);
+                return;
             }
         }
 
-        temp.set(index, todoList);
-        todoLists.postValue(temp);
+        //we reach here if the list we're trying to update doesn't exist, which means the user is trying to make a new list
+        //temp.add(todoList);
+        //todoLists.postValue(temp);
+    }
+
+    public void updateTodoListName(String oldName, String newName){
+        ArrayList<TodoList> temp = todoLists.getValue();
+
+        if(temp == null){
+            return;
+        }
+
+        for (int i = 0; i < temp.size(); i++) {
+            if(temp.get(i).getTodoListTitle().equals(oldName)){
+                temp.get(i).setTodoListTitle(newName);
+                todoLists.postValue(temp);
+                return;
+            }
+        }
     }
 
     public int getIndex(TodoList todoList){
+
+        if(todoLists.getValue() == null){
+            return -1;
+        }
+
         return todoLists.getValue().indexOf(todoList);
     }
 

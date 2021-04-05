@@ -13,15 +13,27 @@ public class TodoViewModel extends ViewModel {
 
     private TodoListRepo todoListRepo;
 
+    private String oldTitle = "";
+
+    private String tempNewTitle = "";
+
     public TodoViewModel() {
         todoListRepo = TodoListRepo.getInstance();
     }
 
     public void setCurrentTodoList(TodoList todoList){
         this.todoList = todoList;
+
+        if(todoList.getTodoListTitle().equals("")){
+            createNewTodoList();
+        }
     }
 
     public void updateTodoList(){
+        if(todoList.getTodoListTitle().isEmpty() && todoList.getTodos().isEmpty()){
+            return;
+        }
+
         todoListRepo.updateTodoList(todoList);
     }
 
@@ -32,5 +44,23 @@ public class TodoViewModel extends ViewModel {
     public void addNewTodo(String todoText){
         Todo todo = new Todo(todoText);
         todoList.addTodo(todo);
+    }
+
+    public void updateTodoListName(){
+        todoList.setTodoListTitle(tempNewTitle);
+        todoListRepo.updateTodoListName(oldTitle, tempNewTitle);
+    }
+
+    public void createNewTodoList(){
+        Log.e("ERROR", "empty");
+        todoListRepo.addTodoList(""); //the title is gonna be an empty string to show it's a new list
+    }
+
+    public void setOldTitle(){
+        oldTitle = todoList.getTodoListTitle();
+    }
+
+    public void setNewTitle(String name){
+        tempNewTitle = name;
     }
 }

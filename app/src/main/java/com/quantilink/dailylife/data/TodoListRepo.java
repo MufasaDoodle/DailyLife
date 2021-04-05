@@ -34,6 +34,10 @@ public class TodoListRepo {
         todoListDAO.updateTodoList(todoList);
     }
 
+    public void updateTodoListName(String oldName, String newName){
+        todoListDAO.updateTodoListName(oldName, newName);
+    }
+
     public int getIndex(TodoList todoList){
         return todoListDAO.getIndex(todoList);
     }

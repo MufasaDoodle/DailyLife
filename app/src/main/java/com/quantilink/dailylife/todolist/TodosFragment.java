@@ -16,12 +16,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.quantilink.dailylife.R;
 import com.quantilink.dailylife.models.NotesAdapter;
 import com.quantilink.dailylife.models.TodoList;
 import com.quantilink.dailylife.models.TodoListAdapter;
 import com.quantilink.dailylife.note.NoteActivity;
 import com.quantilink.dailylife.todos.TodoActivity;
+
+import java.util.ArrayList;
 
 public class TodosFragment extends Fragment implements TodoListAdapter.OnListItemClickListener {
 
@@ -48,10 +51,10 @@ public class TodosFragment extends Fragment implements TodoListAdapter.OnListIte
             todoLists.setAdapter(todoListAdapter);
         });
 
-        Button createListButton = root.findViewById(R.id.createtodolistbtn);
-        EditText todoListtitleET = root.findViewById(R.id.todolistTitle);
-        createListButton.setOnClickListener(v -> {
-            addNewTodoList(todoListtitleET.getText().toString());
+        FloatingActionButton fab = root.findViewById(R.id.FABadd);
+
+        fab.setOnClickListener(v -> {
+            addNewEmptyList();
         });
 
         return root;
@@ -64,8 +67,15 @@ public class TodosFragment extends Fragment implements TodoListAdapter.OnListIte
         startActivity(intent);
     }
 
+    public void addNewEmptyList(){
+        TodoList newList = new TodoList("", new ArrayList<>());
+        Intent intent = new Intent(root.getContext(), TodoActivity.class);
+        intent.putExtra("TodoList", newList);
+        startActivity(intent);
+    }
+
     void addNewTodoList(String todoListTitle){
-        if(!todoListTitle.isEmpty() || todoListTitle != null){
+        if(!todoListTitle.isEmpty()){
             viewModel.addTodoList(todoListTitle);
         }
     }

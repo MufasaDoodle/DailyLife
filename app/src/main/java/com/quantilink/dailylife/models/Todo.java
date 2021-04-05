@@ -21,4 +21,12 @@ public class Todo implements Serializable {
     public void toggleBool(){
         isFinished = !isFinished;
     }
+
+    public void setTodoText(String todoText) {
+        this.todoText = todoText;
+    }
+
+    public void setFinished(boolean finished) {
+        isFinished = finished;
+    }
 }

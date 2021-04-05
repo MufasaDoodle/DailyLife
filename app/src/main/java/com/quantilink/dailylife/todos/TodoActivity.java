@@ -33,8 +33,12 @@ public class TodoActivity extends AppCompatActivity implements TodoAdapter.OnLis
     RecyclerView todos;
     TodoAdapter todoAdapter;
 
+    EditText todoTitle;
+
     EditText newTodoText;
     Button newTodoBtn;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,18 +71,40 @@ public class TodoActivity extends AppCompatActivity implements TodoAdapter.OnLis
         button.setOnClickListener(v -> {
             saveAndClose();
         });
+
+        todoTitle = findViewById(R.id.todoTitleET);
+
+        todoTitle.setText(viewModel.getTodoList().getTodoListTitle());
+
+        todoTitle.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                viewModel.setOldTitle();
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                viewModel.setNewTitle(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                //viewModel.updateTodoListName();
+            }
+        });
     }
 
     private void addNewTodo() {
         viewModel.addNewTodo(newTodoText.getText().toString());
 
-        todoAdapter = new TodoAdapter(viewModel.getTodoList(), this); //maybe change the adapter to require a todolist instead of arraylist OTHER WAY
+        todoAdapter = new TodoAdapter(viewModel.getTodoList(), this);
         todos.setAdapter(todoAdapter);
 
         newTodoText.setText("");
     }
 
     void saveAndClose() {
+        viewModel.updateTodoListName();
         viewModel.updateTodoList();
         Toast.makeText(this, "Saved list", Toast.LENGTH_SHORT).show();
         finish();
