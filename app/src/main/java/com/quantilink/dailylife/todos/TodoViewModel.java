@@ -1,39 +1,30 @@
 package com.quantilink.dailylife.todos;
 
+import android.app.Application;
 import android.util.Log;
 
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.ViewModel;
 
 import com.quantilink.dailylife.data.TodoListRepo;
 import com.quantilink.dailylife.models.Todo;
 import com.quantilink.dailylife.models.TodoList;
 
-public class TodoViewModel extends ViewModel {
+public class TodoViewModel extends AndroidViewModel {
     private TodoList todoList;
 
     private TodoListRepo todoListRepo;
 
-    private String oldTitle = "";
-
-    private String tempNewTitle = "";
-
-    public TodoViewModel() {
-        todoListRepo = TodoListRepo.getInstance();
+    public TodoViewModel(Application app) {
+        super(app);
+        todoListRepo = TodoListRepo.getInstance(app);
     }
 
     public void setCurrentTodoList(TodoList todoList){
         this.todoList = todoList;
-
-        if(todoList.getTodoListTitle().equals("")){
-            createNewTodoList();
-        }
     }
 
     public void updateTodoList(){
-        if(todoList.getTodoListTitle().isEmpty() && todoList.getTodos().isEmpty()){
-            return;
-        }
-
         todoListRepo.updateTodoList(todoList);
     }
 
@@ -46,21 +37,7 @@ public class TodoViewModel extends ViewModel {
         todoList.addTodo(todo);
     }
 
-    public void updateTodoListName(){
-        todoList.setTodoListTitle(tempNewTitle);
-        todoListRepo.updateTodoListName(oldTitle, tempNewTitle);
-    }
-
-    public void createNewTodoList(){
-        Log.e("ERROR", "empty");
-        todoListRepo.addTodoList(""); //the title is gonna be an empty string to show it's a new list
-    }
-
-    public void setOldTitle(){
-        oldTitle = todoList.getTodoListTitle();
-    }
-
     public void setNewTitle(String name){
-        tempNewTitle = name;
+        todoList.setTodoListTitle(name);
     }
 }

@@ -11,13 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.quantilink.dailylife.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.ViewHolder> {
-    private ArrayList<TodoList> todoLists;
+    private List<TodoList> todoLists;
 
     final private OnListItemClickListener onListItemClickListener;
 
-    public TodoListAdapter(ArrayList<TodoList> todoLists, TodoListAdapter.OnListItemClickListener listener) {
+    public TodoListAdapter(List<TodoList> todoLists, TodoListAdapter.OnListItemClickListener listener) {
         this.todoLists = todoLists;
         onListItemClickListener = listener;
     }

@@ -44,10 +44,7 @@ public class TodoActivity extends AppCompatActivity implements TodoAdapter.OnLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo);
-        viewModel = new ViewModelProvider(this).get(TodoViewModel.class);
-
-        //init text fields or whatever we do with each todo
-        //set text fields to whatever values todo
+        viewModel = new ViewModelProvider.AndroidViewModelFactory(getApplication()).create(TodoViewModel.class);
 
         Bundle bundle = getIntent().getExtras();
         viewModel.setCurrentTodoList((TodoList) bundle.get("TodoList")); //set the current list in the VM
@@ -56,7 +53,7 @@ public class TodoActivity extends AppCompatActivity implements TodoAdapter.OnLis
         todos.hasFixedSize();
         todos.setLayoutManager(new LinearLayoutManager(this));
 
-        todoAdapter = new TodoAdapter(viewModel.getTodoList(), this); //maybe change the adapter to require a todolist instead of arraylist OTHER WAY
+        todoAdapter = new TodoAdapter(viewModel.getTodoList(), this);
         todos.setAdapter(todoAdapter);
 
         newTodoText = findViewById(R.id.addTodoTextField);
@@ -79,7 +76,7 @@ public class TodoActivity extends AppCompatActivity implements TodoAdapter.OnLis
         todoTitle.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                viewModel.setOldTitle();
+
             }
 
             @Override
@@ -89,12 +86,17 @@ public class TodoActivity extends AppCompatActivity implements TodoAdapter.OnLis
 
             @Override
             public void afterTextChanged(Editable s) {
-                //viewModel.updateTodoListName();
+
             }
         });
     }
 
     private void addNewTodo() {
+        //dont add a new to do if the text is empty
+        if(newTodoText.getText().toString().isEmpty()){
+            return;
+        }
+
         viewModel.addNewTodo(newTodoText.getText().toString());
 
         todoAdapter = new TodoAdapter(viewModel.getTodoList(), this);
@@ -104,7 +106,6 @@ public class TodoActivity extends AppCompatActivity implements TodoAdapter.OnLis
     }
 
     void saveAndClose() {
-        viewModel.updateTodoListName();
         viewModel.updateTodoList();
         Toast.makeText(this, "Saved list", Toast.LENGTH_SHORT).show();
         finish();
@@ -114,6 +115,13 @@ public class TodoActivity extends AppCompatActivity implements TodoAdapter.OnLis
     public void onBackPressed() {
         saveAndClose();
         super.onBackPressed();
+    }
+
+    @Override
+    public void onPause() {
+        viewModel.updateTodoList();
+        Toast.makeText(this, "Saved list", Toast.LENGTH_SHORT).show();
+        super.onPause();
     }
 
     @Override

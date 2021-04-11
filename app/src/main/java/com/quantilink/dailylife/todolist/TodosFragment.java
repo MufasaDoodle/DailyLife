@@ -1,5 +1,6 @@
 package com.quantilink.dailylife.todolist;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -39,7 +40,8 @@ public class TodosFragment extends Fragment implements TodoListAdapter.OnListIte
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        viewModel = new ViewModelProvider(this).get(TodosViewModel.class);
+
+        viewModel = new ViewModelProvider.AndroidViewModelFactory(getActivity().getApplication()).create(TodosViewModel.class);
         root = inflater.inflate(R.layout.fragment_todos, container, false);
 
         todoLists = root.findViewById(R.id.todosRV);
@@ -68,10 +70,7 @@ public class TodosFragment extends Fragment implements TodoListAdapter.OnListIte
     }
 
     public void addNewEmptyList(){
-        TodoList newList = new TodoList("", new ArrayList<>());
-        Intent intent = new Intent(root.getContext(), TodoActivity.class);
-        intent.putExtra("TodoList", newList);
-        startActivity(intent);
+        addNewTodoList("New List");
     }
 
     void addNewTodoList(String todoListTitle){

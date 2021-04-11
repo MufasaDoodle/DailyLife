@@ -1,5 +1,8 @@
 package com.quantilink.dailylife.todolist;
 
+import android.app.Application;
+
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -7,18 +10,21 @@ import com.quantilink.dailylife.data.TodoListRepo;
 import com.quantilink.dailylife.models.TodoList;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class TodosViewModel extends ViewModel {
+public class TodosViewModel extends AndroidViewModel {
 
 
 
     private TodoListRepo todoListRepo;
 
-    public TodosViewModel() {
-        todoListRepo = TodoListRepo.getInstance();
+
+    public TodosViewModel(Application app) {
+        super(app);
+        todoListRepo = TodoListRepo.getInstance(app);
     }
 
-    public LiveData<ArrayList<TodoList>> getTodoLists() {
+    public LiveData<List<TodoList>> getTodoLists() {
         return todoListRepo.getTodoLists();
     }
 
@@ -27,6 +33,11 @@ public class TodosViewModel extends ViewModel {
     }
 
     public void deleteTodoList(int index){
-        todoListRepo.deleteTodoList(index);
+        //todoListRepo.deleteTodoList(index);
+        //todo
+    }
+
+    public void deleteAllLists() {
+        todoListRepo.deleteAllLists();
     }
 }

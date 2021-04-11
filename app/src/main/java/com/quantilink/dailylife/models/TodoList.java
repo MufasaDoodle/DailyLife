@@ -1,15 +1,42 @@
 package com.quantilink.dailylife.models;
 
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
+
+import com.quantilink.dailylife.helpers.DataConverter;
+
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+@Entity(tableName = "todolist_table")
 public class TodoList implements Serializable {
-    private String todoListTitle;
-    private ArrayList<Todo> todos;
 
-    public TodoList(String todoListTitle, ArrayList<Todo> todos) {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+    private String todoListTitle;
+
+    @TypeConverters(DataConverter.class)
+    private List<Todo> todos;
+
+
+    public TodoList(String todoListTitle, List<Todo> todos) {
         this.todoListTitle = todoListTitle;
+        this.todos = todos;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTodos(ArrayList<Todo> todos) {
         this.todos = todos;
     }
 
@@ -17,7 +44,8 @@ public class TodoList implements Serializable {
         return todoListTitle;
     }
 
-    public ArrayList<Todo> getTodos() {
+    @TypeConverters(DataConverter.class)
+    public List<Todo> getTodos() {
         return todos;
     }
 
