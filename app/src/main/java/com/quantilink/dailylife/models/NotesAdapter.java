@@ -11,14 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.quantilink.dailylife.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> {
 
-    private ArrayList<Note> notes;
+    private List<Note> notes;
 
     final private OnListItemClickListener onListItemClickListener;
 
-    public NotesAdapter(ArrayList<Note> notes, OnListItemClickListener listener) {
+    public NotesAdapter(List<Note> notes, OnListItemClickListener listener) {
         this.notes = notes;
         onListItemClickListener = listener;
     }

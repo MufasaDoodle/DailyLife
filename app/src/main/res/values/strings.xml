@@ -18,4 +18,6 @@
     <string name="todo_add_btn">Add</string>
     <string name="tempTodoTitle">todoTitle</string>
     <string name="addNewList">addNewListFAB</string>
+    <string name="addNewNote">Create new note</string>
+    <string name="notename">noteName</string>
 </resources>

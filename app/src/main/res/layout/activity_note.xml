@@ -1,29 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
 
-
-    <TextView
-        android:id="@+id/noteTitle"
+    <!-- TOOLBAR -->
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/tempNotetitle"
-        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/noteToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary">
+
+            <ImageButton
+                android:id="@+id/noteBackBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:src="@drawable/ic_back"
+                android:layout_marginEnd="25dp"/>
+
+            <EditText
+                android:id="@+id/noteTitleET"
+                android:hint="Title"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:textColor="@color/black"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- MAIN CONTENT -->
+
+    <EditText
         android:id="@+id/noteText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/noteTitle"
-        android:layout_marginStart="20dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:text="@string/tempNotetext"
         />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

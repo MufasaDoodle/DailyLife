@@ -1,8 +1,15 @@
 package com.quantilink.dailylife.models;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.io.Serializable;
 
+@Entity(tableName = "note_table")
 public class Note implements Serializable {
+
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private String noteTitle;
     private String noteText;
 
@@ -17,5 +24,21 @@ public class Note implements Serializable {
 
     public String getNoteText() {
         return noteText;
+    }
+
+    public void setNoteTitle(String noteTitle) {
+        this.noteTitle = noteTitle;
+    }
+
+    public void setNoteText(String noteText) {
+        this.noteText = noteText;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

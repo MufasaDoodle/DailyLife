@@ -3,11 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".notes.NotesFragment">
+    tools:context=".notes.NotesFragment"
+    android:background="@color/darkgrey">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
@@ -16,4 +18,13 @@
             />
 
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/FABaddnote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/addNewNote"
+        android:src="@drawable/ic_add"
+        android:layout_gravity="bottom|center"
+        />
 </FrameLayout>
