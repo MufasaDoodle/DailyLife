@@ -33,11 +33,12 @@ The frontend will contain a navigation drawer or something similar with the thre
 - [x] As a user, I want to be able to remove notes so that I can remove unnecessary items.
 - [x] As a user, I want the app to save my notes to local storage when exiting the app, so that my data is saved when I am done.
 - [x] As a user, I want the app to save my notes to local storage when I press the back button, so that my data is saved when I am done.
-- [ ] As a user, I want to be able to view my grocery list, so that I can help remember what I am supposed to buy.
-- [ ] As a user, I want to be able to add items to my grocery list, so that I can update my list.
-- [ ] As a user, I want to be able to remove items from my grocery list, so that I can update my list.
-- [ ] As a user, I want the app to save my grocery list to local storage when exiting the app, so that my data is saved when I am done.
-- [ ] As a user, I want the app to save my grocery list to local storage when I press the back button, so that my data is saved when I am done.
+- [x] As a user, I want to be able to add a new grocery list, so that I can remember what I need to buy.
+- [x] As a user, I want to be able to view my grocery lists, so that I can easily find the one I'm looking for.
+- [x] As a user, I want to be able to add items to my grocery list, so that I can update my list.
+- [x] As a user, I want to be able to remove items from my grocery list, so that I can update my list.
+- [x] As a user, I want the app to save my grocery list to local storage when exiting the app, so that my data is saved when I am done.
+- [x] As a user, I want the app to save my grocery list to local storage when I press the back button, so that my data is saved when I am done.
 
 ### Could have:
 - [ ] As a user, I want to be able to create an account, so that I can utilize cloud functionality.
