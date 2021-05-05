@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_notes" />
     <fragment
         android:id="@+id/nav_grocery"
-        android:name="com.quantilink.dailylife.grocery.GroceryFragment"
+        android:name="com.quantilink.dailylife.groceries.GroceriesFragment"
         android:label="Grocery"
         tools:layout="@layout/fragment_grocery" />
     <fragment

@@ -19,7 +19,9 @@
         <activity android:name=".note.NoteActivity">
         </activity>
         <activity android:name=".todos.TodoActivity">
-    </activity>
+        </activity>
+        <activity android:name=".grocery.GroceryActivity">
+        </activity>
     </application>
 
 </manifest>

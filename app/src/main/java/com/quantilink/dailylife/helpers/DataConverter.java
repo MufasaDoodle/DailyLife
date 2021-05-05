@@ -4,6 +4,7 @@ import androidx.room.TypeConverter;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.quantilink.dailylife.models.Grocery;
 import com.quantilink.dailylife.models.Todo;
 
 import java.lang.reflect.Type;
@@ -32,5 +33,28 @@ public class DataConverter {
         Gson gson = new Gson();
         Type type = new TypeToken<List<Todo>>() {}.getType();
         return gson.fromJson(todoString, type);
+    }
+
+    @TypeConverter
+    public String fromGroceries(List<Grocery> groceries){
+        if(groceries == null){
+            return null;
+        }
+
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<Grocery>>() {}.getType();
+        String json = gson.toJson(groceries, type);
+        return json;
+    }
+
+    @TypeConverter
+    public List<Grocery> toGroceries(String groceryString){
+        if(groceryString == null){
+            return null;
+        }
+
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<Grocery>>() {}.getType();
+        return gson.fromJson(groceryString, type);
     }
 }
