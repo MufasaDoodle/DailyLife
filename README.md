@@ -26,8 +26,8 @@ The frontend will contain a navigation drawer or something similar with the thre
 - [x] As a user, I want to be able to edit info about todo entries in a selected list, so that I can change my todos.
 - [x] As a user, I want to be able to edit the name of a todolist, so that I can better organize.
 - [x] As a user, I want to be able to view my list of notes, so that I can easily find the one I’m looking for.
-- [ ] As a user, I want to be able to remove todos from a todo list so that I can remove unnecessary items.
-- [ ] As a user, I want to be able to remove todolists so that I can remove unnecessary items.
+- [x] As a user, I want to be able to remove todos from a todo list so that I can remove unnecessary items.
+- [x] As a user, I want to be able to remove todolists so that I can remove unnecessary items.
 - [x] As a user, I want to be able to add a new note, so that I can remember something for the future.
 - [x] As a user, I want to be able to view and edit a selected note, so that I can always read and update my notes.
 - [ ] As a user, I want to be able to remove notes so that I can remove unnecessary items.
