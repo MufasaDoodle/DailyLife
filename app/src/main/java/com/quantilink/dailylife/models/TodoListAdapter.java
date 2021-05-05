@@ -1,8 +1,11 @@
 package com.quantilink.dailylife.models;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -41,22 +44,30 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.ViewHo
         return todoLists.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements OnClickListener {
         TextView title;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.tv_name);
             itemView.setOnClickListener(this);
+            itemView.findViewById(R.id.deleteTodoListBtn).setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            onListItemClickListener.OnListItemClick(todoLists.get(getAdapterPosition()));
+            if (v.getId() == R.id.deleteTodoListBtn) {
+                onListItemClickListener.OnListItemDelete(todoLists.get(getAdapterPosition()));
+            }
+            else {
+                onListItemClickListener.OnListItemClick(todoLists.get(getAdapterPosition()));
+            }
         }
     }
 
     public interface OnListItemClickListener {
         void OnListItemClick(TodoList todoList);
+
+        void OnListItemDelete(TodoList todoList);
     }
 }

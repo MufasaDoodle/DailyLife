@@ -149,4 +149,10 @@ public class TodoActivity extends AppCompatActivity implements TodoAdapter.OnLis
     public void OnEditTextChanged(int index, String text) {
         viewModel.getTodoList().getTodos().get(index).setTodoText(text);
     }
+
+    @Override
+    public void OnTodoDeletePressed(int index) {
+        viewModel.removeTodoFromList(index);
+        todoAdapter.notifyDataSetChanged();
+    }
 }

@@ -37,6 +37,11 @@ public class TodoViewModel extends AndroidViewModel {
         todoList.addTodo(todo);
     }
 
+    public void removeTodoFromList(int index){
+        todoList.getTodos().remove(index);
+        updateTodoList();
+    }
+
     public void setNewTitle(String name){
         todoList.setTodoListTitle(name);
     }

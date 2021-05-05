@@ -16,11 +16,19 @@
             android:layout_weight="3"
             android:autofillHints="@string/todo_writeTodoHint"
             android:hint="@string/todo_writeTodoHint"
-            android:inputType="text" />
+            android:inputType="textMultiLine" />
 
         <CheckBox
             android:id="@+id/todocheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
+        <ImageButton
+            android:id="@+id/tododelete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_delete"
+            />
+
     </LinearLayout>
 </LinearLayout>

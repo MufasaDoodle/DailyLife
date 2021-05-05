@@ -32,8 +32,8 @@ public class TodosViewModel extends AndroidViewModel {
         todoListRepo.addTodoList(todolistTitle);
     }
 
-    public void deleteTodoList(int index){
-        //todoListRepo.deleteTodoList(index);
+    public void deleteTodoList(TodoList todoList){
+        todoListRepo.deleteTodoList(todoList);
         //todo
     }
 

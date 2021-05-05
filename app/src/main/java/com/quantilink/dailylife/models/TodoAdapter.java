@@ -54,7 +54,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements CompoundButton.OnCheckedChangeListener, TextWatcher {
+    public class ViewHolder extends RecyclerView.ViewHolder implements CompoundButton.OnCheckedChangeListener, TextWatcher, View.OnClickListener {
         EditText todoText;
         CheckBox checkBox;
 
@@ -65,6 +65,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
 
             todoText.addTextChangedListener(this);
             checkBox.setOnCheckedChangeListener(this);
+            itemView.findViewById(R.id.tododelete).setOnClickListener(this);
         }
 
         @Override
@@ -86,11 +87,17 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
         public void afterTextChanged(Editable s) {
             //do nothing
         }
+
+        @Override
+        public void onClick(View v) {
+            onListItemClickListener.OnTodoDeletePressed(getAdapterPosition());
+        }
     }
 
 
     public interface OnListItemClickListener {
         void OnCheckBoxTap(int index, boolean isChecked);
         void OnEditTextChanged(int index, String text);
+        void OnTodoDeletePressed(int index);
     }
 }

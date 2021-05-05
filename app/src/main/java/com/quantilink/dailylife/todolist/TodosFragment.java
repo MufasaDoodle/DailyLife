@@ -69,6 +69,12 @@ public class TodosFragment extends Fragment implements TodoListAdapter.OnListIte
         startActivity(intent);
     }
 
+    @Override
+    public void OnListItemDelete(TodoList todoList) {
+        viewModel.deleteTodoList(todoList);
+        todoListAdapter.notifyDataSetChanged();
+    }
+
     public void addNewEmptyList(){
         addNewTodoList("New List");
     }
