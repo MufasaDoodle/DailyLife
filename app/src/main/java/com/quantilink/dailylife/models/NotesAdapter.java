@@ -49,16 +49,23 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
             super(itemView);
             name = itemView.findViewById(R.id.tv_name);
             itemView.setOnClickListener(this);
+            itemView.findViewById(R.id.deleteNoteBtn).setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            onListItemClickListener.OnListItemClick(notes.get(getAdapterPosition()));
+            if(v.getId() == R.id.deleteNoteBtn){
+                onListItemClickListener.OnListItemDeleteClick(notes.get(getAdapterPosition()));
+            }
+            else {
+                onListItemClickListener.OnListItemClick(notes.get(getAdapterPosition()));
+            }
         }
     }
 
     public interface OnListItemClickListener {
         void OnListItemClick(Note note);
+        void OnListItemDeleteClick(Note note);
     }
 }
 

@@ -63,4 +63,10 @@ public class NotesFragment extends Fragment implements NotesAdapter.OnListItemCl
         intent.putExtra("Note", note);
         startActivity(intent);
     }
+
+    @Override
+    public void OnListItemDeleteClick(Note note) {
+        viewModel.removeNote(note);
+        mNotesAdapter.notifyDataSetChanged();
+    }
 }
