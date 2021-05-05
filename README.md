@@ -30,7 +30,7 @@ The frontend will contain a navigation drawer or something similar with the thre
 - [x] As a user, I want to be able to remove todolists so that I can remove unnecessary items.
 - [x] As a user, I want to be able to add a new note, so that I can remember something for the future.
 - [x] As a user, I want to be able to view and edit a selected note, so that I can always read and update my notes.
-- [ ] As a user, I want to be able to remove notes so that I can remove unnecessary items.
+- [x] As a user, I want to be able to remove notes so that I can remove unnecessary items.
 - [x] As a user, I want the app to save my notes to local storage when exiting the app, so that my data is saved when I am done.
 - [x] As a user, I want the app to save my notes to local storage when I press the back button, so that my data is saved when I am done.
 - [ ] As a user, I want to be able to view my grocery list, so that I can help remember what I am supposed to buy.
