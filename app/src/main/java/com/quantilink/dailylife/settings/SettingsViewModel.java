@@ -109,6 +109,8 @@ public class SettingsViewModel extends AndroidViewModel {
     }
 
     public void wipeLocalStorage() {
-
+        noteRepo.deleteAllNotes();
+        todoListRepo.deleteAllLists();
+        groceryRepo.deleteAllGroceryLists();
     }
 }

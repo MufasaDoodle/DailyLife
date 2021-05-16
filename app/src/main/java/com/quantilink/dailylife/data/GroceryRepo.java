@@ -81,4 +81,10 @@ public class GroceryRepo {
             groceryDAO.update(groceryList);
         });
     }
+
+    public void deleteAllGroceryLists(){
+        executorService.execute(() -> {
+            groceryDAO.deleteAllGroceryLists();
+        });
+    }
 }

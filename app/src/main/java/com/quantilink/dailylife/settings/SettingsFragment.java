@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -129,6 +130,7 @@ public class SettingsFragment extends Fragment {
     }
 
     public void wipeLocalStorage(){
-
+        viewModel.wipeLocalStorage();
+        Toast.makeText(getContext(), "All local data wiped", Toast.LENGTH_SHORT).show();
     }
 }

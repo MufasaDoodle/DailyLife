@@ -78,4 +78,10 @@ public class NoteRepo {
 
         //noteTestDAO.updateNote(id, note);
     }
+
+    public void deleteAllNotes(){
+        executorService.execute(() -> {
+            noteDAO.deleteAllNotes();
+        });
+    }
 }
