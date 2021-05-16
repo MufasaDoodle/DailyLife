@@ -8,9 +8,12 @@ import com.quantilink.dailylife.models.Grocery;
 import com.quantilink.dailylife.models.GroceryList;
 import com.quantilink.dailylife.models.Note;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class GroceryRepo {
     private static GroceryRepo instance;
@@ -33,6 +36,20 @@ public class GroceryRepo {
 
     public LiveData<List<GroceryList>> getGroceries(){
         return groceryDAO.getAllGroceries();
+    }
+
+    public List<GroceryList> getGroceriesList(){
+
+        List<Future<GroceryList>> futures = new ArrayList<>();
+
+        executorService.submit(new Callable<List<GroceryList>>() {
+            @Override
+            public List<GroceryList> call() throws Exception {
+                return groceryDAO.getAllGroceriesList();
+            }
+        });
+
+        return null;
     }
 
     public void addGrocery(GroceryList groceryList) {

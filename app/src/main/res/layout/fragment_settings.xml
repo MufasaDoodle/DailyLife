@@ -3,12 +3,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".settings.SettingsFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="settings fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="settings fragment"
+            android:id="@+id/statusText"/>
+
+        <Button
+            android:id="@+id/logInBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log in"
+            android:layout_marginBottom="40dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save data to cloud"
+            android:id="@+id/saveDataBtn"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restore data from cloud"
+            android:id="@+id/restoreDataBtn"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wipe local storage data"
+            android:id="@+id/wipeDataBtn"/>
+
+    </LinearLayout>
 
 </FrameLayout>

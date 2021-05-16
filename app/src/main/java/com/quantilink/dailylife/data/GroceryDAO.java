@@ -27,6 +27,9 @@ public interface GroceryDAO {
     @Query("SELECT * FROM grocery_table")
     LiveData<List<GroceryList>> getAllGroceries();
 
+    @Query("SELECT * FROM grocery_table")
+    List<GroceryList> getAllGroceriesList();
+
     @Query("DELETE FROM grocery_table")
     void deleteAllGroceryLists();
 
