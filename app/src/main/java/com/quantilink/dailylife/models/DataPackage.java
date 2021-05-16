@@ -4,25 +4,37 @@ import java.io.Serializable;
 import java.util.List;
 
 public class DataPackage implements Serializable {
-    int id;
-    List<GroceryList> groceryLists;
-    List<Note> notes;
-    List<TodoList> todoLists;
+    String id;
+    String jsonData;
 
-    public DataPackage(int id, List<GroceryList> groceryLists, List<Note> notes, List<TodoList> todoLists) {
+    public DataPackage(String id, String jsonData) {
         this.id = id;
-        this.groceryLists = groceryLists;
-        this.notes = notes;
-        this.todoLists = todoLists;
+        this.jsonData = jsonData;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getJsonData() {
+        return jsonData;
+    }
+
+    public void setJsonData(String jsonData) {
+        this.jsonData = jsonData;
     }
 
     @Override
     public String toString() {
         return "DataPackage{" +
-                "id=" + id +
-                ", groceryLists=" + groceryLists +
-                ", notes=" + notes +
-                ", todoLists=" + todoLists +
+                "id='" + id + '\'' +
+                ", jsonData='" + jsonData + '\'' +
                 '}';
     }
+
+
 }

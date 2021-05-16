@@ -18,7 +18,10 @@ import com.quantilink.dailylife.data.NoteRepo;
 import com.quantilink.dailylife.data.TodoListRepo;
 import com.quantilink.dailylife.data.UserRepository;
 import com.quantilink.dailylife.models.DataPackage;
+import com.quantilink.dailylife.models.DataPackageResponse;
+import com.quantilink.dailylife.models.Grocery;
 import com.quantilink.dailylife.models.GroceryList;
+import com.quantilink.dailylife.models.ListsToJson;
 import com.quantilink.dailylife.models.Note;
 import com.quantilink.dailylife.models.TodoList;
 
@@ -50,8 +53,13 @@ public class SettingsViewModel extends AndroidViewModel {
         statusString = new MutableLiveData<>();
     }
 
-    public void init(){
-        //userId = userRepository.getCurrentUser().getValue().getUid();
+    public void setId(){
+        if(userRepository.getCurrentUser().getValue() != null){
+            userId = userRepository.getCurrentUser().getValue().getUid();
+        }
+        else {
+            userId = "-1";
+        }
     }
 
     public LiveData<FirebaseUser> getCurrentUser(){
@@ -76,10 +84,12 @@ public class SettingsViewModel extends AndroidViewModel {
 
     public void saveDataToCloud(List<GroceryList> groceryLists, List<Note> notes, List<TodoList> todoLists) {
         DataAPI dataAPI = ServiceGenerator.getDataAPI();
-        DataPackage data = new DataPackage(1, groceryLists, notes, todoLists);
 
         Gson gson = new Gson();
-        Log.i("retrofit", gson.toJson(data));
+        String json = gson.toJson(new ListsToJson(groceryLists, notes, todoLists));
+        DataPackage data = new DataPackage(userId, json);
+
+        Log.i("roo", gson.toJson(data));
 
         Call<DataPackage> call = dataAPI.saveData(data);
         call.enqueue(new Callback<DataPackage>() {
@@ -105,7 +115,38 @@ public class SettingsViewModel extends AndroidViewModel {
     }
 
     public void restoreDataFromCloud() {
+        DataAPI dataAPI = ServiceGenerator.getDataAPI();
 
+        Call<DataPackageResponse> call = dataAPI.getData(userId);
+        call.enqueue(new Callback<DataPackageResponse>() {
+            @Override
+            public void onResponse(Call<DataPackageResponse> call, Response<DataPackageResponse> response) {
+                if(response.code() == 200){
+                    wipeLocalStorage();
+
+                    DataPackage data = response.body().getDataPackage();
+                    Gson gson = new Gson();
+                    ListsToJson lists = gson.fromJson(data.getJsonData(), ListsToJson.class);
+
+                    for(Note note : lists.getNotes()){
+                        noteRepo.addNote(note);
+                    }
+
+                    for (TodoList todoList : lists.getTodoLists()){
+                        todoListRepo.addTodoList(todoList);
+                    }
+
+                    for(GroceryList groceryList : lists.getGroceryLists()){
+                        groceryRepo.addGrocery(groceryList);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DataPackageResponse> call, Throwable t) {
+                Log.i("Retrofit", "Something went wrong " + t.getMessage());
+            }
+        });
     }
 
     public void wipeLocalStorage() {

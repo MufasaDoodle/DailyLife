@@ -2,6 +2,7 @@ package com.quantilink.dailylife.settings;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +43,7 @@ public class SettingsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         viewModel = new ViewModelProvider.AndroidViewModelFactory(getActivity().getApplication()).create(SettingsViewModel.class);
-        viewModel.init();
+        viewModel.setId();
         checkIfSignedIn();
         root = inflater.inflate(R.layout.fragment_settings, container, false);
 
@@ -115,9 +116,11 @@ public class SettingsFragment extends Fragment {
     public void logInOrOut(){
         if(viewModel.getCurrentUser().getValue() != null){
             viewModel.signOut();
+            viewModel.setId();
         }
         else {
             startLoginActivity();
+            viewModel.setId();
         }
     }
 
@@ -126,7 +129,7 @@ public class SettingsFragment extends Fragment {
     }
 
     public void restoreDataFromCloud(){
-
+        viewModel.restoreDataFromCloud();
     }
 
     public void wipeLocalStorage(){

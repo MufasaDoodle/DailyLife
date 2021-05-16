@@ -46,6 +46,12 @@ public class TodoListRepo {
         });
     }
 
+    public void addTodoList(TodoList todoList){
+        executorService.execute(() -> {
+            todoListDAO.insert(todoList);
+        });
+    }
+
     public void deleteTodoList(TodoList todoList) {
         //todoListTestDAO.deleteTodoList(index);
         executorService.execute(() -> todoListDAO.delete(todoList));

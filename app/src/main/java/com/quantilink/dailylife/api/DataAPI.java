@@ -1,6 +1,7 @@
 package com.quantilink.dailylife.api;
 
 import com.quantilink.dailylife.models.DataPackage;
+import com.quantilink.dailylife.models.DataPackageResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -10,7 +11,7 @@ import retrofit2.http.Path;
 
 public interface DataAPI {
     @GET("AND/{id}")
-    Call<DataPackage> getData(@Path("id") int id);
+    Call<DataPackageResponse> getData(@Path("id") String id);
 
     @POST("AND")
     Call<DataPackage> saveData(@Body DataPackage data);
