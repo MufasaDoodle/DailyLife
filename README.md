@@ -42,6 +42,6 @@ The frontend will contain a navigation drawer or something similar with the thre
 
 ### Could have:
 - [x] As a user, I want to be able to log into my Google account, so that the system knows whose data to retrieve.
-- [ ] As a user, I want to be able to back up my data on the cloud, so that if something happens to my phone, I can restore my data.
-- [ ] As a user, I want to be able to retrieve my backup data from the cloud and have it overwrite existing data, so that I can easily get my data back.
+- [x] As a user, I want to be able to back up my data on the cloud, so that if something happens to my phone, I can restore my data.
+- [x] As a user, I want to be able to retrieve my backup data from the cloud and have it overwrite existing data, so that I can easily get my data back.
 - [x] As a user, I want to be able to tap a button to wipe all entries in local storage, so that I can quickly delete all my data.
