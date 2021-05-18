@@ -2,6 +2,9 @@ package com.quantilink.dailylife.models;
 
 import java.util.List;
 
+/**
+ * Used to serialize json data for the datapackage class. This solution was an artifact of continual issues with Retrofit
+ */
 public class ListsToJson {
     List<GroceryList> groceryLists;
     List<Note> notes;

@@ -11,6 +11,9 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 // from https://stackoverflow.com/questions/44580702/android-room-persistent-library-how-to-insert-class-that-has-a-list-object-fie
+/**
+ * Includes gson json type conversion to and from todolists and grocerylists
+ */
 public class DataConverter {
     @TypeConverter
     public String fromTodos(List<Todo>todos){

@@ -9,6 +9,9 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
+/**
+ * REST API for storing and retrieving user data
+ */
 public interface DataAPI {
     @GET("AND/{id}")
     Call<DataPackageResponse> getData(@Path("id") String id);

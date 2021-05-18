@@ -10,6 +10,9 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.quantilink.dailylife.R;
 
+/**
+ * Landing page fragment
+ */
 public class HomeFragment extends Fragment {
 
     private HomeViewModel viewModel;

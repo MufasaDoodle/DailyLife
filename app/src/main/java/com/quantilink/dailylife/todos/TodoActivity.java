@@ -27,6 +27,9 @@ import com.quantilink.dailylife.models.TodoListAdapter;
 import com.quantilink.dailylife.note.NoteViewModel;
 import com.quantilink.dailylife.todolist.TodosViewModel;
 
+/**
+ * Individual todos
+ */
 public class TodoActivity extends AppCompatActivity implements TodoAdapter.OnListItemClickListener {
     private TodoViewModel viewModel;
 

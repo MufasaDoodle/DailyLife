@@ -1,5 +1,8 @@
 package com.quantilink.dailylife.models;
 
+/**
+ * Response data package. Used with the get request in the dataAPI
+ */
 public class DataPackageResponse {
     private String id;
     private String jsonData;

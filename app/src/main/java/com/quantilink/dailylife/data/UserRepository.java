@@ -7,6 +7,9 @@ import androidx.lifecycle.LiveData;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseUser;
 
+/**
+ * User repo for firebase users
+ */
 public class UserRepository {
     private final UserLiveData currentUser;
     private final Application app;

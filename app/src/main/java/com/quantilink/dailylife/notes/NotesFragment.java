@@ -20,6 +20,9 @@ import com.quantilink.dailylife.note.NoteActivity;
 
 import java.util.ArrayList;
 
+/**
+ * Displays all notes
+ */
 public class NotesFragment extends Fragment implements NotesAdapter.OnListItemClickListener{
     private NotesViewModel viewModel;
     RecyclerView notesList;

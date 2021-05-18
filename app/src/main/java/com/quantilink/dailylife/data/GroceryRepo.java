@@ -15,6 +15,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+/**
+ * Repository for accessing grocery local database
+ */
 public class GroceryRepo {
     private static GroceryRepo instance;
     private GroceryDAO groceryDAO;

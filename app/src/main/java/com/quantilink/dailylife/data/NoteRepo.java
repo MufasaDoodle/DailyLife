@@ -12,10 +12,12 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * Repository for accessing notes local database
+ */
 public class NoteRepo {
 
     private static NoteRepo instance;
-    //private NoteTestDAO noteTestDAO;
     private NoteDAO noteDAO;
     private final ExecutorService executorService;
 
@@ -26,8 +28,6 @@ public class NoteRepo {
         noteDAO = database.noteDAO();
         allNotes = noteDAO.getAllNotes();
         executorService = Executors.newFixedThreadPool(2);
-        //noteTestDAO = NoteTestDAO.getInstance();
-        //webClient = WebClient.getInstance();
     }
 
     public static NoteRepo getInstance(Application application){
@@ -40,7 +40,6 @@ public class NoteRepo {
 
     public LiveData<List<Note>> getNotes(){
         return noteDAO.getAllNotes();
-        //return noteTestDAO.getNotes();
     }
 
     public void addNote(Note note) {
@@ -51,8 +50,6 @@ public class NoteRepo {
         executorService.execute(() -> {
             noteDAO.insert(note);
         });
-
-        //noteTestDAO.addNote(note);
     }
 
     public void removeNote(Note note) {
@@ -63,8 +60,6 @@ public class NoteRepo {
         executorService.execute(() -> {
             noteDAO.delete(note);
         });
-
-        //noteTestDAO.removeNote(note);
     }
 
     public void updateNote(Note note){
@@ -75,8 +70,6 @@ public class NoteRepo {
         executorService.execute(() -> {
             noteDAO.update(note);
         });
-
-        //noteTestDAO.updateNote(id, note);
     }
 
     public void deleteAllNotes(){

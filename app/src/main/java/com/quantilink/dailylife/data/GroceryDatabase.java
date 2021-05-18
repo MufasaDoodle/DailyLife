@@ -8,6 +8,9 @@ import androidx.room.RoomDatabase;
 
 import com.quantilink.dailylife.models.GroceryList;
 
+/**
+ * Room database instance for groceries
+ */
 @Database(entities = {GroceryList.class}, version = 2)
 public abstract class GroceryDatabase extends RoomDatabase {
     private static GroceryDatabase instance;

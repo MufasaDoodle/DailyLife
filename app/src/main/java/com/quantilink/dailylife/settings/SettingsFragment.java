@@ -23,6 +23,9 @@ import com.quantilink.dailylife.signin.SignInActivity;
 
 import java.util.List;
 
+/**
+ * Settings menu. Only used for saving, loading and wiping data so far
+ */
 public class SettingsFragment extends Fragment {
     private SettingsViewModel viewModel;
 

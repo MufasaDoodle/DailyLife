@@ -13,6 +13,9 @@ import com.quantilink.dailylife.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Adapter class for displaying multiple notes
+ */
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> {
 
     private List<Note> notes;

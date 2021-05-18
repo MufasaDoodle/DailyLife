@@ -3,6 +3,9 @@ package com.quantilink.dailylife.api;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * Generates a retrofit service for user data
+ */
 public class ServiceGenerator {
     private static Retrofit.Builder retrofitBuilder = new Retrofit.Builder().baseUrl("http://api.quantilink.com").addConverterFactory(GsonConverterFactory.create());
 

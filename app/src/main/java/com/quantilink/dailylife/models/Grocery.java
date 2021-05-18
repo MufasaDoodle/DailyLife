@@ -2,6 +2,9 @@ package com.quantilink.dailylife.models;
 
 import java.io.Serializable;
 
+/**
+ * An individual grocery item
+ */
 public class Grocery implements Serializable {
 
     private String title;

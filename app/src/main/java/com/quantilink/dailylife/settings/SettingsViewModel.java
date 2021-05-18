@@ -89,13 +89,11 @@ public class SettingsViewModel extends AndroidViewModel {
         String json = gson.toJson(new ListsToJson(groceryLists, notes, todoLists));
         DataPackage data = new DataPackage(userId, json);
 
-        Log.i("roo", gson.toJson(data));
-
         Call<DataPackage> call = dataAPI.saveData(data);
         call.enqueue(new Callback<DataPackage>() {
             @Override
             public void onResponse(Call<DataPackage> call, Response<DataPackage> response) {
-
+                //for demonstration in video. if i forget to remove it, that is why it's here
                 try {
                     Log.i("Retrofit", "got response" + response.code() + response.errorBody().string() + response.body() + response.toString());
                 } catch (IOException e) {

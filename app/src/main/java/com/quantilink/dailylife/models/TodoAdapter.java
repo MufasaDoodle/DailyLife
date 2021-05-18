@@ -20,6 +20,9 @@ import com.quantilink.dailylife.R;
 
 import java.util.ArrayList;
 
+/**
+ * Adapter for displaying multiple todos
+ */
 public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
     private TodoList todos;
 

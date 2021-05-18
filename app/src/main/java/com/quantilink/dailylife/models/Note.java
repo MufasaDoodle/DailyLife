@@ -5,6 +5,9 @@ import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
+/**
+ * An individual note. Saved in a room database
+ */
 @Entity(tableName = "note_table")
 public class Note implements Serializable {
 

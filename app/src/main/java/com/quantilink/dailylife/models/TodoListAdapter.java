@@ -13,6 +13,9 @@ import com.quantilink.dailylife.R;
 
 import java.util.List;
 
+/**
+ * Adapter to handle multiple todolists
+ */
 public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.ViewHolder> {
     private List<TodoList> todoLists;
 

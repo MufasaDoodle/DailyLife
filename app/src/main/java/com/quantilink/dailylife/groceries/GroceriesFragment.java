@@ -18,6 +18,9 @@ import com.quantilink.dailylife.models.GroceryList;
 import com.quantilink.dailylife.models.GroceryListAdapter;
 import com.quantilink.dailylife.todos.TodoActivity;
 
+/**
+ * Fragment for grocery lists
+ */
 public class GroceriesFragment extends Fragment implements GroceryListAdapter.OnListItemClickListener {
 
     private GroceriesViewModel viewModel;
@@ -31,7 +34,6 @@ public class GroceriesFragment extends Fragment implements GroceryListAdapter.On
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
         viewModel = new ViewModelProvider.AndroidViewModelFactory(getActivity().getApplication()).create(GroceriesViewModel.class);
         root = inflater.inflate(R.layout.fragment_grocery, container, false);
 

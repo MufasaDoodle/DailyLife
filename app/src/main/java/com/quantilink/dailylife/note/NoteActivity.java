@@ -15,6 +15,9 @@ import androidx.navigation.ui.AppBarConfiguration;
 import com.quantilink.dailylife.R;
 import com.quantilink.dailylife.models.Note;
 
+/**
+ * Individual note
+ */
 public class NoteActivity extends AppCompatActivity {
     private NoteViewModel viewModel;
 

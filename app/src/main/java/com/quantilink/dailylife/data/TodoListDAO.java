@@ -11,6 +11,9 @@ import com.quantilink.dailylife.models.TodoList;
 
 import java.util.List;
 
+/**
+ * Local storage DAO for todolists
+ */
 @Dao
 public interface TodoListDAO {
     @Insert
@@ -30,7 +33,4 @@ public interface TodoListDAO {
 
     @Query("SELECT * FROM todolist_table WHERE id=:index")
     TodoList getTodoList(long index);
-
-    @Query("SELECT * FROM todolist_table ORDER BY id DESC LIMIT 1")
-    TodoList getLatestTodoList();
 }

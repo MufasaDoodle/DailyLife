@@ -5,6 +5,9 @@ import androidx.lifecycle.LiveData;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+/**
+ * Firebase authentication for UserLiveData
+ */
 public class UserLiveData extends LiveData<FirebaseUser> {
     private final FirebaseAuth.AuthStateListener listener = firebaseAuth -> setValue(firebaseAuth.getCurrentUser());
 

@@ -20,6 +20,9 @@ import com.quantilink.dailylife.models.Grocery;
 import com.quantilink.dailylife.models.GroceryAdapter;
 import com.quantilink.dailylife.models.GroceryList;
 
+/**
+ * Handles the view for the individual grocery list
+ */
 public class GroceryActivity extends AppCompatActivity implements GroceryAdapter.OnListItemClickListener {
     private GroceryViewModel viewModel;
     RecyclerView groceryList;
@@ -38,7 +41,6 @@ public class GroceryActivity extends AppCompatActivity implements GroceryAdapter
         viewModel = new ViewModelProvider.AndroidViewModelFactory(getApplication()).create(GroceryViewModel.class);
 
         Bundle bundle = getIntent().getExtras();
-        //viewModel.setCurrentTodoList((TodoList) bundle.get("TodoList")); //set the current list in the VM
 
         viewModel.setCurrentGroceryList((GroceryList) bundle.get("GroceryList"));
 
@@ -93,8 +95,6 @@ public class GroceryActivity extends AppCompatActivity implements GroceryAdapter
 
         adapter = new GroceryAdapter(viewModel.getGroceryList(), this);
         groceryList.setAdapter(adapter);
-
-
 
         groceryText.setText("");
     }

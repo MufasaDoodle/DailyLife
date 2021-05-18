@@ -12,6 +12,9 @@ import com.quantilink.dailylife.R;
 
 import java.util.List;
 
+/**
+ * Adapter for displaying multiple grocery lists
+ */
 public class GroceryListAdapter extends RecyclerView.Adapter<GroceryListAdapter.ViewHolder> {
     private List<GroceryList> groceryLists;
 

@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Class for holding multiple todos
+ */
 @Entity(tableName = "todolist_table")
 public class TodoList implements Serializable {
 

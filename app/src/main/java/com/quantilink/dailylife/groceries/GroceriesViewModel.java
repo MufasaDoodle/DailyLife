@@ -34,8 +34,4 @@ public class GroceriesViewModel extends AndroidViewModel {
     public void deleteTodoList(GroceryList groceryList){
         repo.removeGrocery(groceryList);
     }
-
-    public void deleteAllLists() {
-        //todo
-    }
 }

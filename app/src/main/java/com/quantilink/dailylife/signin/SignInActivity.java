@@ -16,6 +16,9 @@ import com.quantilink.dailylife.settings.SettingsFragment;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * User sign in page. Only supports google account sign in so far
+ */
 public class SignInActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 42;
     private SignInViewModel viewModel;

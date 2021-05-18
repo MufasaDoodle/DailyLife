@@ -2,6 +2,9 @@ package com.quantilink.dailylife.models;
 
 import java.io.Serializable;
 
+/**
+ * An individual todoitem
+ */
 public class Todo implements Serializable {
     private String todoText;
     private boolean isFinished = false;

@@ -13,6 +13,9 @@ import com.quantilink.dailylife.models.Note;
 
 import java.util.List;
 
+/**
+ * Local storage DAO for grocery lists
+ */
 @Dao
 public interface GroceryDAO {
     @Insert

@@ -27,6 +27,9 @@ import com.quantilink.dailylife.todos.TodoActivity;
 
 import java.util.ArrayList;
 
+/**
+ * Fragment to display all todos
+ */
 public class TodosFragment extends Fragment implements TodoListAdapter.OnListItemClickListener {
 
     private TodosViewModel viewModel;

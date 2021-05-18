@@ -11,6 +11,9 @@ import com.quantilink.dailylife.models.Note;
 
 import java.util.List;
 
+/**
+ * Local storage DAO for notes
+ */
 @Dao
 public interface NoteDAO {
 

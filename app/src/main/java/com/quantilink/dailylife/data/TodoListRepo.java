@@ -13,9 +13,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicReference;
 
+/**
+ * Repository for accessing todolists local database
+ */
 public class TodoListRepo {
     private static TodoListRepo instance;
-    //private TodoListTestDAO todoListTestDAO;
     private TodoListDAO todoListDAO;
     private final ExecutorService executorService;
 
@@ -26,8 +28,6 @@ public class TodoListRepo {
         todoListDAO = database.todoListDAO();
         allTodoLists = todoListDAO.getAllTodoLists();
         executorService = Executors.newFixedThreadPool(2);
-        //todoListTestDAO = TodoListTestDAO.getInstance();
-        //webClient = WebClient.getInstance();
     }
 
     public static TodoListRepo getInstance(Application application) {
@@ -39,7 +39,6 @@ public class TodoListRepo {
     }
 
     public void addTodoList(String todolistTitle) {
-        //todoListTestDAO.addTodoList(todolistTitle);
         TodoList toAdd = new TodoList(todolistTitle, new ArrayList<>());
         executorService.execute(() -> {
             todoListDAO.insert(toAdd);
@@ -53,37 +52,15 @@ public class TodoListRepo {
     }
 
     public void deleteTodoList(TodoList todoList) {
-        //todoListTestDAO.deleteTodoList(index);
         executorService.execute(() -> todoListDAO.delete(todoList));
     }
 
     public void updateTodoList(TodoList todoList) {
-        //todoListTestDAO.updateTodoList(todoList);
         executorService.execute(() -> todoListDAO.update(todoList));
     }
 
-    public void updateTodoListName(String oldName, String newName) {
-        //todoListTestDAO.updateTodoListName(oldName, newName);
-        //todo implement a proper query in the interface
-    }
-
-    public int getIndex(TodoList todoList) {
-        //return todoListTestDAO.getIndex(todoList);
-        //todo implement proper query in the interface
-
-        return -1;
-    }
-
     public LiveData<List<TodoList>> getTodoLists() {
-        //return todoListTestDAO.getTodoLists();
         return todoListDAO.getAllTodoLists();
-    }
-
-    public TodoList getLatestTodoList() {
-        executorService.execute(() -> {
-            todoListDAO.getLatestTodoList();
-        });
-        return null; //TODO
     }
 
     public void deleteAllLists() {

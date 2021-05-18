@@ -8,6 +8,9 @@ import androidx.room.RoomDatabase;
 
 import com.quantilink.dailylife.models.TodoList;
 
+/**
+ * Room database instance for todolists
+ */
 @Database(entities = {TodoList.class}, version = 1)
 public abstract class TodoListDatabase extends RoomDatabase {
 

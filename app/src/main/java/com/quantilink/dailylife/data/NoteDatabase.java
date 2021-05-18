@@ -8,6 +8,9 @@ import androidx.room.RoomDatabase;
 
 import com.quantilink.dailylife.models.Note;
 
+/**
+ * Room database instance for notes
+ */
 @Database(entities = {Note.class}, version = 1)
 public abstract class NoteDatabase extends RoomDatabase {
 

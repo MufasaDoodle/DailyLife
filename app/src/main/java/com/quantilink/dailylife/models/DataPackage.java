@@ -3,6 +3,9 @@ package com.quantilink.dailylife.models;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Data package contains serialized json data which includes all the data lists and an ID from a google account
+ */
 public class DataPackage implements Serializable {
     String id;
     String jsonData;

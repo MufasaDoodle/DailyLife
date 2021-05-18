@@ -17,6 +17,7 @@ public class GroceryList implements Serializable {
     private int id;
     private String groceryListTitle;
 
+    //using a typeconversion because I had trouble with Room's relationship pairing
     @TypeConverters(DataConverter.class)
     private List<Grocery> groceries;
 
