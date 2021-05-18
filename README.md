@@ -9,9 +9,9 @@ The app has three main functions:
 * A note taking function. Allows users to create and write new notes
 * A grocery list manager. Similar to the todo list, but also allows for inputting amounts. User can swipe a listing to remove it.
 
-Technically speaking, the backend would contain a SQLite database for local storage, and if the user creates an account and logs in, an option to upload the data to the cloud through my (existing) web API. The user would then be able to retrieve their data from the cloud.
+Technically speaking, the backend contains an SQLite database for local storage, and if the user logs in to their Google account, they gain the option to upload the data to the cloud through my (existing) web API. The user would then be able to retrieve their data from the cloud.
 
-The frontend will contain a navigation drawer or something similar with the three functions able to be selected. You will then go to the selected view and you're able to interact with it. The app saves the data to local storage if the user exits the app or presses the 'back' button to a different view.
+The frontend contains a navigation drawer or something similar with the three functions able to be selected. You can then go to the selected view and you're able to interact with it. The app saves the data to local storage if the user exits the app or presses the 'back' button to a different view.
 
 ## Requirements:
 
